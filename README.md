@@ -1,0 +1,1 @@
+dagster project scaffold --name=etl
