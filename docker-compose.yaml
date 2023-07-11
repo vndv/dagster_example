@@ -8,13 +8,13 @@ services:
     networks:
         - dagster_net
 
-  # dagster-daemon:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   command: "dagster-daemon run"
-  #   networks:
-  #       - dagster_net
+  dagster-daemon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "dagster-daemon run"
+    networks:
+        - dagster_net
 
   dagster-postgres:
     image: postgres:13.3
