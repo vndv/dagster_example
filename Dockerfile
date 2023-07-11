@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.9-slim
 
 # Change working directory
 WORKDIR /usr/src/app
@@ -6,8 +6,10 @@ ENV DAGSTER_HOME=/usr/src/app
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-COPY etl ./etl
+COPY . .
 
-CMD ["dagit", "0.0.0.0", "-p", "3000"]
+COPY  workspace.yaml .
+
+CMD ["dagit", "-w", "workspace.yaml", "-h", "0.0.0.0", "-p", "3000"]
